@@ -38,13 +38,16 @@ jobs:
       - name: Run SOOS DAST Analysis
         uses: soos-io/soos-dast-github-action@v2
         with:
-          client_id: ${{ secrets.SOOS_CLIENT_ID }}
-          api_key: ${{ secrets.SOOS_API_KEY }}
-          project_name: "GH actions - 25.31.1 release"
-          scan_mode: "baseline"
-          target_url: "https://brokencrystals.com/"
-          export_format: "Sarif"
-          export_file_type: "Json"
+          client_id: ${{ secrets.SOOS_PDA_CLIENT_ID }}
+          api_key: ${{ secrets.SOOS_PDA_API_KEY }}
+          api_url: "https://api.soos.io/api/"
+          project_name: "github-dast-error"
+          target_url: "https://demoqa.com/profile"
+          auth_username: "invalidUsername"
+          auth_password: "invalidPassword"
+          auth_login_URL: "https://demoqa.com/login"
+          auth_verification_url: "https://demoqa.com/Account/v1/User/52d9d238-fc85-4f1e-9ce2-50a65397ed29"
+          log_level: "DEBUG"
       - name: Find and rename SARIF file since it is unique
         run: |
           file=$(find . -name "*.sarif.json" | head -n 1)
