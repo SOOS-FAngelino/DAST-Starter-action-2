@@ -38,8 +38,8 @@ jobs:
       - name: Run SOOS DAST Analysis
         uses: soos-io/soos-dast-github-action@v2
         with:
-          client_id: ${{ secrets.SOOS_PDA_CLIENT_ID }}
-          api_key: ${{ secrets.SOOS_PDA_API_KEY }}
+          client_id: ${{ secrets.SOOS_CLIENT_ID }}
+          api_key: ${{ secrets.SOOS_API_KEY }}
           api_url: "https://api.soos.io/api/"
           project_name: "github-dast-error"
           target_url: "https://demoqa.com/profile"
